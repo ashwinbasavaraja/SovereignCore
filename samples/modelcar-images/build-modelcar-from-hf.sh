@@ -9,7 +9,7 @@ set -e
 DEFAULT_MODEL_ID="ibm-granite/granite-4.0-1b"
 MODEL_ID="$DEFAULT_MODEL_ID"
 TARGET_REGISTRY=""
-TARGET_NAMESPACE="aiiaas-models" # DO NOT CHANGE THIS
+TARGET_ORGANIZATION="aiiaas-models" # DO NOT CHANGE THIS
 IMAGE_TAG="v1"
 SKIP_DOWNLOAD=false
 
@@ -95,7 +95,7 @@ fi
 
 # Generate image name from model ID
 MODEL_IMAGE_NAME=$(basename "${MODEL_ID}" | tr '[:upper:]' '[:lower:]')
-FULL_IMAGE_NAME="${TARGET_REGISTRY}/${TARGET_NAMESPACE}/${MODEL_IMAGE_NAME}:${IMAGE_TAG}"
+FULL_IMAGE_NAME="${TARGET_REGISTRY}/${TARGET_ORGANIZATION}/${MODEL_IMAGE_NAME}:${IMAGE_TAG}"
 
 # Create model-specific directory
 MODEL_DIR_NAME=$(echo "${MODEL_ID}" | tr '/' '_' | tr '[:upper:]' '[:lower:]')

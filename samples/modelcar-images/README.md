@@ -9,7 +9,7 @@ This directory contains scripts to upload modelcar images for IBM Sovereign Core
 1. Mirror pre-built modelcar images from Red Hat's catalog to your registry
 2. Build custom modelcar images from Hugging Face models and push them to your registry
 
-Modelcars are uploaded to the `aiiaas-models` repository in your Quay registry.
+Modelcars are uploaded to the `aiiaas-models` organization in your Quay registry.
 
 ## Scripts
 
@@ -33,11 +33,11 @@ sudo dnf install skopeo
 
 **How it works:**
 
-This script mirrors images from source tags to target repository names with a specified tag:
+This script mirrors images from source tags to target repositories within the organization with a specified tag:
 - Source: `quay.io/redhat-ai-services/modelcar-catalog:granite-4.0-h-small`
 - Target: `your-registry/aiiaas-models/granite-4.0-h-small:v1` (or custom tag)
 
-The source tag becomes the target repository name, and you can specify a common target tag for all mirrored images.
+The source tag becomes the target repository name within the `aiiaas-models` organization, and you can specify a common target tag for all mirrored images.
 
 **Usage:**
 

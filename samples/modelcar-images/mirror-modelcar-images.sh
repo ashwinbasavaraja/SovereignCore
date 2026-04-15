@@ -8,7 +8,7 @@ set -e
 # Default values
 SOURCE_REGISTRY="quay.io/redhat-ai-services/modelcar-catalog"
 TARGET_REGISTRY=""
-TARGET_NAMESPACE="aiiaas-models" # DO NOT CHANGE THIS
+TARGET_ORGANIZATION="aiiaas-models" # DO NOT CHANGE THIS
 TARGET_TAG="v1"
 DRY_RUN=false
 SPECIFIC_TAGS=""
@@ -107,12 +107,12 @@ if ! command -v skopeo &> /dev/null; then
 fi
 
 echo "Configuration:"
-echo "  Source Registry:  $SOURCE_REGISTRY"
-echo "  Target Registry:  $TARGET_REGISTRY"
-echo "  Target Namespace: aiiaas-models (fixed)"
-echo "  Target Tag:       $TARGET_TAG"
-echo "  Dry Run:          $DRY_RUN"
-echo "  Insecure:         $INSECURE"
+echo "  Source Registry:    $SOURCE_REGISTRY"
+echo "  Target Registry:    $TARGET_REGISTRY"
+echo "  Target Organization: aiiaas-models (fixed)"
+echo "  Target Tag:         $TARGET_TAG"
+echo "  Dry Run:            $DRY_RUN"
+echo "  Insecure:           $INSECURE"
 echo "--------------------------------------------------------"
 
 # Function to mirror a single image
@@ -123,7 +123,7 @@ mirror_image() {
     # Extract repository name from source tag (remove version/tag suffix if present)
     local repo_name
     repo_name="${source_tag%%:*}"
-    local target_image="${TARGET_REGISTRY}/${TARGET_NAMESPACE}/${repo_name}:${TARGET_TAG}"
+    local target_image="${TARGET_REGISTRY}/${TARGET_ORGANIZATION}/${repo_name}:${TARGET_TAG}"
 
     echo ""
     echo "Mirroring: $source_image -> $target_image"
