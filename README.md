@@ -1,2 +1,2 @@
 # SovereignCore
-Sovereign Core customer samples,runbooks and playbooks.
+Sovereign Core customer scripts, samples, runbooks and playbooks.
